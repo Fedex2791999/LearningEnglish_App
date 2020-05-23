@@ -6,16 +6,10 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  TouchableOpacity
-} from 'react-native';
+import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 
 export default class Open1 extends Component {
   render() {
@@ -23,37 +17,58 @@ export default class Open1 extends Component {
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.title}>Chọn một hướng đi</Text>
-        </View>{/* header */}
-        <View style={styles.line}></View>
+        </View>
+        {/* header */}
+        <View style={styles.line} />
 
         <View style={styles.body}>
-          <TouchableOpacity style={styles.content} onPress={() => this.props.navigation.navigate('Open2')}>
+          <TouchableOpacity
+            style={styles.content}
+            onPress={() => this.props.navigation.navigate('Open2')}>
             <View style={styles.top}>
-              <Image style={styles.logo} source={require('../images/logo.png')}></Image>
+              <Image
+                style={styles.logo}
+                source={require('../images/logo.png')}
+              />
             </View>
             <View style={styles.bot}>
-              <Text style={{ fontWeight: "bold", fontSize: 20, textDecorationLine: 'underline', }}
-               
-              >Bạn đã biết tiếng Anh một chút ?</Text>
-              <Text style={{ fontSize: 19 }}>Bạn đã biết tiếng Anh một chút</Text>
+              <Text
+                style={{
+                  fontWeight: 'bold',
+                  fontSize: 20,
+                  textDecorationLine: 'underline',
+                }}>
+                Bạn đã biết tiếng Anh một chút ?
+              </Text>
+              <Text style={{fontSize: 19}}>Bạn đã biết tiếng Anh một chút</Text>
             </View>
-          </TouchableOpacity>{/* content */}
+          </TouchableOpacity>
+          {/* content */}
 
-          <TouchableOpacity style={styles.content} >
+          <TouchableOpacity style={styles.content}>
             <View style={styles.top}>
-              <Image style={styles.logo} source={require('../images/logo.png')}></Image>
+              <Image
+                style={styles.logo}
+                source={require('../images/logo.png')}
+              />
             </View>
             <View style={styles.bot}>
-              <Text style={{ fontWeight: "bold", fontSize: 20, textDecorationLine: 'underline', }}
-                
-              >Bạn đã biết tiếng Anh một chút ?</Text>
-              <Text style={{ fontSize: 19 }}>Bạn đã biết tiếng Anh một chút</Text>
+              <Text
+                style={{
+                  fontWeight: 'bold',
+                  fontSize: 20,
+                  textDecorationLine: 'underline',
+                }}>
+                Bạn đã biết tiếng Anh một chút ?
+              </Text>
+              <Text style={{fontSize: 19}}>Bạn đã biết tiếng Anh một chút</Text>
             </View>
-          </TouchableOpacity>{/* content */}
-
-        </View>{/* body */}
+          </TouchableOpacity>
+          {/* content */}
+        </View>
+        {/* body */}
       </View>
-    )
+    );
   }
 }
 
@@ -74,7 +89,7 @@ const styles = StyleSheet.create({
   body: {
     flex: 9,
     flexDirection: 'column',
-    justifyContent: 'flex-start',// Bắt đầu từ trên xuống dưới
+    justifyContent: 'flex-start', // Bắt đầu từ trên xuống dưới
     alignItems: 'center',
   },
   logo: {
@@ -118,8 +133,7 @@ const styles = StyleSheet.create({
   bot: {
     flex: 6,
     flexDirection: 'column',
-    justifyContent: 'flex-start',// Bắt đầu từ trên xuống dưới
+    justifyContent: 'flex-start', // Bắt đầu từ trên xuống dưới
     alignItems: 'center',
   },
 });
-

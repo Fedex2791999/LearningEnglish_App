@@ -35,7 +35,7 @@ export default class Login extends Component {
   }
 
   checkPassword = (email, pass) => {
-    if (email === 'Fedex2791999' && pass === 'moi') {
+    if (email === 'Fedex2791999' && pass === '123456') {
       this.props.navigation.navigate('Open2');
     } else if (email === '' && pass === 'cu') {
       this.props.navigation.navigate('Main');
@@ -59,51 +59,68 @@ export default class Login extends Component {
         <View style={styles.container}>
           <View style={styles.up}>
             <Image style={styles.logo} source={require('../images/logo.png')} />
-            <Text style={styles.title}>Ứng dụng học tiếng Anh</Text>
+            <Text style={styles.title}>Go English </Text>
           </View>
 
-          <View style={styles.down}>
-            <View style={styles.textInputContainer}>
-              <TextInput
-                style={styles.textInput}
-                textContentType="emailAddress"
-                keyboardType="email-address"
-                placeholder="Enter your email or username"
-                onChangeText={text => {
-                  this.setState({EmailValue: text});
-                }}
-              />
+          <View style={styles.box_shadow}>
+            <View style={styles.box_input}>
+              <View style={styles.layout_input}>
+                <Text style={styles.intro}>Ứng dụng học Tiếng Anh</Text>
+                <Text style={styles.intro}>
+                  {' '}
+                  Học tiếng Anh mọi lúc, mọi nơi
+                </Text>
+                <View style={{marginTop: 7}}>
+                  <Text style={{fontSize: 15}}>
+                    Hãy đăng nhập ngay để bắt đầu học thôi!!!
+                  </Text>
+                </View>
+
+                <View style={styles.textInputContainer}>
+                  <TextInput
+                    style={styles.textInput}
+                    textContentType="emailAddress"
+                    keyboardType="email-address"
+                    placeholder="Nhập email hoặc username"
+                    onChangeText={text => {
+                      this.setState({EmailValue: text});
+                    }}
+                  />
+                </View>
+                <View style={styles.textInputContainer}>
+                  <TextInput
+                    style={styles.textInput}
+                    placeholder="Nhập mật khẩu"
+                    secureTextEntry={true}
+                    onChangeText={text => {
+                      this.setState({PassWordValue: text});
+                    }}
+                  />
+                </View>
+              </View>
+
+              {/* <Divider style={styles.divider} /> */}
             </View>
-            <View style={styles.textInputContainer}>
-              <TextInput
-                style={styles.textInput}
-                placeholder="Enter your password"
-                secureTextEntry={true}
-                onChangeText={text => {
-                  this.setState({PassWordValue: text});
-                }}
-              />
-            </View>
-            <TouchableOpacity
-              style={styles.loginButton}
-              onPress={() =>
-                this.checkPassword(
-                  this.state.EmailValue,
-                  this.state.PassWordValue,
-                )
-              }>
-              <Text style={styles.tittleButton}> Đăng nhập </Text>
-            </TouchableOpacity>
-            <Divider style={styles.divider} />
-            <FontAwesome.Button
-              style={styles.facebookButton}
-              name="facebook"
-              backgroundColor="#3b5998">
-              <Text style={styles.tittleButton}> Đăng nhập với Facebook </Text>
-            </FontAwesome.Button>
           </View>
+
+          <TouchableOpacity
+            style={styles.loginButton}
+            onPress={() =>
+              this.checkPassword(
+                this.state.EmailValue,
+                this.state.PassWordValue,
+              )
+            }>
+            <Text style={styles.tittleButton}> Đăng nhập </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.facebookButton}>
+            <Text style={styles.tittleButton}> Đăng nhập với Facebook </Text>
+          </TouchableOpacity>
           <View style={styles.signUp}>
-            <Text style={styles.tittleButton}>Bạn chưa có tài khoản? </Text>
+            <Text style={{color: '#212529', fontSize: 16, marginLeft: 20}}>
+              Bạn chưa có tài khoản?{' '}
+            </Text>
+
             <Text
               style={styles.textSignUp}
               onPress={() => this.props.navigation.navigate('SignUp')}>
@@ -122,7 +139,8 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'stretch',
-    backgroundColor: '#8af38e',
+    backgroundColor: '#eac3b0',
+    paddingBottom: 30,
   },
   up: {
     flex: 2.5,
@@ -130,46 +148,62 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  down: {
-    flex: 5.5,
+  box_input: {
     flexDirection: 'column',
     justifyContent: 'flex-start', // Bắt đầu từ trên xuống dưới
     alignItems: 'center',
+    borderColor: 'rgba(0, 0, 0, 0.1)',
+    borderWidth: 1,
+    marginHorizontal: 20,
+    borderRadius: 5,
+    backgroundColor: '#FFFFFF',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 11,
+    },
+    shadowOpacity: 0.57,
+    shadowRadius: 15.19,
+    elevation: 23,
   },
   title: {
     justifyContent: 'center',
     alignItems: 'center',
     fontSize: 20,
+    fontWeight: 'bold',
   },
   textInputContainer: {
     paddingHorizontal: 10,
-    backgroundColor: 'white',
     borderRadius: 6,
-    marginTop: 35,
+    marginTop: 10,
     marginBottom: 10,
   },
   textInput: {
-    width: 280,
-    height: 45,
+    borderBottomWidth: 1,
+    borderBottomColor: '#CFD4DA',
+    opacity: 0.5,
+    color: '#777777',
+    fontSize: 14,
   },
   loginButton: {
     marginTop: 30,
-    width: 300,
-    height: 45,
-    borderRadius: 6,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#e60000',
+    borderRadius: 5,
+    backgroundColor: '#F06060',
+    marginHorizontal: 20,
   },
   tittleButton: {
-    color: 'white',
     fontSize: 20,
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginVertical: 5,
   },
   facebookButton: {
-    borderRadius: 6,
-    width: 300,
-    height: 45,
+    marginTop: 5,
+    borderRadius: 5,
     justifyContent: 'center',
+    backgroundColor: '#3b5998',
+    marginHorizontal: 20,
   },
   line: {
     height: 1,
@@ -193,16 +227,24 @@ const styles = StyleSheet.create({
     width: 60,
     marginBottom: 5,
   },
-  signUp: {
-    flex: 2,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'relative',
-  },
   textSignUp: {
-    color: 'blue',
-    fontSize: 20,
-    textDecorationLine: 'underline',
+    // color: 'blue',
+    fontSize: 16,
+    // textDecorationLine: 'underline',
+    fontWeight: 'bold',
+  },
+  layout_input: {
+    marginVertical: 20,
+  },
+  intro: {
+    color: '#F06060',
+    fontWeight: 'bold',
+    fontSize: 14,
+    textAlign: 'center',
+  },
+  signUp: {
+    flexDirection: 'row',
+    marginHorizontal: 20,
+    marginVertical: 20,
   },
 });

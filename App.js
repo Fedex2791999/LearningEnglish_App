@@ -36,7 +36,7 @@ import Listening2 from './screens/Listening/Listen2';
 import Listening3 from './screens/Listening/Listen3';
 import Listening4 from './screens/Listening/Listen4';
 // import Script from './screens/Listening/script';
-
+//listen  who you are 
 const HomeStack = createStackNavigator(
   {
     Home: {screen: HomeScreen},
@@ -195,9 +195,22 @@ const tabNavigator = createBottomTabNavigator(
 
 tabNavigator.path = '';
 
+const authenStack = createStackNavigator(
+  {
+    Login: {screen: Login},
+    SignUp: {
+      screen: SignUp,
+    },
+  },
+  {
+    initialRouteName: 'Login',
+    headerMode: 'none',
+    // headerBackTitle: 'Home',
+    // headerBackground: 'red'
+  },
+);
 const App = createSwitchNavigator({
-  Login: {screen: Login},
-
+  Authen: authenStack,
   Sentence4: {screen: Sentence4},
   Sentence3: {screen: Sentence3},
   Sentence: {screen: Sentence},
@@ -223,6 +236,5 @@ const App = createSwitchNavigator({
   Open1: {screen: Open1},
   Open2: {screen: Open2},
   Open3: {screen: Open3},
-  SignUp: {screen: SignUp},
 });
 export default createAppContainer(App);

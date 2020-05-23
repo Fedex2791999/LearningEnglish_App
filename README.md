@@ -1,6 +1,6 @@
 # LearningEnglish_App
  
- Hướng dẫn sử dụng LeanningEnglish_App
+ #  Hướng dẫn sử dụng LeanningEnglish_App <br />
  B1: CLone link github về, gõ lệnh: git clone 'link project' <br />
  B2: Sau khi clone về mở commandline tại đường dẫn root project gõ lệnh: npm install, để tải thử viện <br />
  B3: Mở máy ảo trên gennymotion, nếu chưa có bạn có thể tải qua đường link sau https://www.genymotion.com/ <br />

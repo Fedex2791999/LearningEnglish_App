@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Button,
@@ -13,32 +13,27 @@ import {
   Dimensions,
 } from 'react-native';
 
-export default class SignUp extends React.Component {
-  constructor() {
-    super();
+const SignUp = (props) => {
+  const [Password, setPass] = useState('');
+  const [RePassword, setRePass] = useState('');
+  const [Username, setUsername] = useState('');
+  const [FullName, setFullName] = useState('');
+  const [Email, setEmail] = useState('');
 
-    this.state = {
-      Password: '',
-      RePassword: '',
-      Username: '',
-      Email: '',
-    };
-  }
-
-  Simple_If_Else = () => {
+  const Simple_If_Else = () => {
     const reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (this.state.Password != this.state.RePassword) {
+    if (Password != RePassword) {
       Alert.alert('Password does not match');
-    } else if (this.state.Password < 8 || this.state.Username < 8) {
+    } else if (Password < 8 || Username < 8) {
       Alert.alert('Username or Password length less than 8 character');
     }
-    // else if (this.state.Password > 32 || this.state.Username > 32) {
+    // else if (Password > 32 || Username > 32) {
     //   Alert.alert("Username or Password length more than 32 character");
     // }
-    // else if (reg.test(this.state.email) == false) {
+    // else if (reg.test(email) == false) {
     //   Alert.alert("Email is Not Correct");
     // }
-    else if (reg.test(this.state.email) == true) {
+    else if (reg.test(email) == true) {
       Alert.alert('Email Correct');
     } else {
       Alert.alert(
@@ -47,7 +42,7 @@ export default class SignUp extends React.Component {
         [
           {
             text: 'OK',
-            onPress: () => this.props.navigation.navigate('Login'),
+            onPress: () => props.navigation.navigate('Login'),
           },
         ],
         {cancelable: false},
@@ -55,105 +50,103 @@ export default class SignUp extends React.Component {
     }
   };
 
-  render() {
-    return (
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.container}>
-          <View style={{marginVertical: 20}}>
-            <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-              <View style={{flexDirection: 'column', justifyContent: 'center'}}>
-                <Image
-                  style={styles.logo}
-                  source={require('../images/logo.png')}
-                />
-                <Text style={styles.title}>Go English </Text>
-              </View>
+  return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View style={styles.container}>
+        <View style={{marginVertical: 20}}>
+          <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+            <View style={{flexDirection: 'column', justifyContent: 'center'}}>
+              <Image
+                style={styles.logo}
+                source={require('../images/logo.png')}
+              />
+              <Text style={styles.title}>Go English </Text>
             </View>
           </View>
-          <View style={styles.input_container}>
-            <Text
-              style={{
-                color: '#F06060',
-                fontWeight: 'bold',
-                fontSize: 16,
-                textAlign: 'center',
-                marginBottom: 20,
-              }}>
-              Hãy đăng ký ngay để bắt đầu học nào!!!
-            </Text>
-            <View style={styles.input_box}>
-              <TextInput
-                style={styles.input}
-                placeholder="Email"
-                autoCapitalize="none"
-                underlineColorAndroid={'transparent'}
-                onChangeText={text => {
-                  this.setState({Email: text});
-                }}
-              />
-            </View>
-
-            <View style={styles.input_box}>
-              <TextInput
-                style={styles.input}
-                placeholder="Username"
-                autoCapitalize="none"
-                underlineColorAndroid={'transparent'}
-                onChangeText={text => {
-                  this.setState({Username: text});
-                }}
-              />
-            </View>
-
-            <View style={styles.input_box}>
-              <TextInput
-                style={styles.input}
-                placeholder="Fullname"
-                autoCapitalize="none"
-                underlineColorAndroid={'transparent'}
-                onChangeText={text => {
-                  this.setState({Username: text});
-                }}
-              />
-            </View>
-
-            <View style={styles.input_box}>
-              <TextInput
-                style={styles.input}
-                placeholder="Password"
-                secureTextEntry={true}
-                autoCapitalize="none"
-                underlineColorAndroid={'transparent'}
-                onChangeText={text => {
-                  this.setState({Password: text});
-                }}
-              />
-            </View>
-
-            <View style={styles.input_box}>
-              <TextInput
-                style={styles.input}
-                placeholder="Re Password"
-                secureTextEntry={true}
-                autoCapitalize="none"
-                underlineColorAndroid={'transparent'}
-                onChangeText={text => {
-                  this.setState({RePassword: text});
-                }}
-              />
-            </View>
-          </View>
-
-          <TouchableOpacity
-            style={styles.button}
-            onPress={this.Simple_If_Else.bind(this)}>
-            <Text style={styles.tittleButton}>Đăng ký</Text>
-          </TouchableOpacity>
         </View>
-      </TouchableWithoutFeedback>
-    );
-  }
-}
+        <View style={styles.input_container}>
+          <Text
+            style={{
+              color: '#F06060',
+              fontWeight: 'bold',
+              fontSize: 16,
+              textAlign: 'center',
+              marginBottom: 20,
+            }}>
+            Hãy đăng ký ngay để bắt đầu học nào!!!
+          </Text>
+          <View style={styles.input_box}>
+            <TextInput
+              style={styles.input}
+              placeholder="Email"
+              autoCapitalize="none"
+              underlineColorAndroid={'transparent'}
+              onChangeText={text => {
+                setEmail(text)
+              }}
+            />
+          </View>
+
+          <View style={styles.input_box}>
+            <TextInput
+              style={styles.input}
+              placeholder="Username"
+              autoCapitalize="none"
+              underlineColorAndroid={'transparent'}
+              onChangeText={text => {
+                setUsername(text)
+              }}
+            />
+          </View>
+
+          <View style={styles.input_box}>
+            <TextInput
+              style={styles.input}
+              placeholder="Fullname"
+              autoCapitalize="none"
+              underlineColorAndroid={'transparent'}
+              onChangeText={text => {
+                setFullName(text)
+              }}
+            />
+          </View>
+
+          <View style={styles.input_box}>
+            <TextInput
+              style={styles.input}
+              placeholder="Password"
+              secureTextEntry={true}
+              autoCapitalize="none"
+              underlineColorAndroid={'transparent'}
+              onChangeText={text => {
+                setPass(text)
+              }}
+            />
+          </View>
+
+          <View style={styles.input_box}>
+            <TextInput
+              style={styles.input}
+              placeholder="Re Password"
+              secureTextEntry={true}
+              autoCapitalize="none"
+              underlineColorAndroid={'transparent'}
+              onChangeText={text => {
+                    setRePass(text)
+              }}
+            />
+          </View>
+        </View>
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={Simple_If_Else}>
+          <Text style={styles.tittleButton}>Đăng ký</Text>
+        </TouchableOpacity>
+      </View>
+    </TouchableWithoutFeedback>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -162,7 +155,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     textAlign: 'center',
     backgroundColor: '#eac3b0',
-    paddingBottom: 30
+    paddingBottom: 30,
 
     // backgroundColor: '#dcecc7',
   },
@@ -205,3 +198,4 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
 });
+export default SignUp;

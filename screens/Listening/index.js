@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {ScrollView, View, TouchableOpacity, Text} from 'react-native';
 import IconBack from './components/IconBack';
 import Audio from './audio';
@@ -46,63 +46,61 @@ const audio = [
   },
 ];
 
-export default class PlayList extends Component {
-  render() {
-    return (
-      <ScrollView>
-        <View style={{height: 50, flexDirection: 'row'}}>
-          <View
+const PlayList = props => {
+  return (
+    <ScrollView>
+      <View style={{height: 50, flexDirection: 'row'}}>
+        <View
+          style={{
+            flex: 4,
+            backgroundColor: 'blue',
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <View style={{flex: 1}}>
+            <IconBack navigation={props.navigation} screen="Main" />
+          </View>
+          <Text
             style={{
               flex: 4,
-              backgroundColor: 'blue',
-              flexDirection: 'row',
+              fontSize: 28,
+              fontWeight: 'bold',
+              color: 'white',
+            }}>
+            Listening
+          </Text>
+        </View>
+        <View style={{flex: 1}}>
+          <TouchableOpacity
+            style={{
+              flex: 1,
+              backgroundColor: 'red',
               justifyContent: 'center',
               alignItems: 'center',
-            }}>
-            <View style={{flex: 1}}>
-              <IconBack navigation={this.props.navigation} screen="Main" />
-            </View>
-            <Text
-              style={{
-                flex: 4,
-                fontSize: 28,
-                fontWeight: 'bold',
-                color: 'white',
-              }}>
-              Listening
+            }}
+            onPress={() => props.navigation.navigate('Script')}>
+            <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>
+              Script
             </Text>
-          </View>
-          <View style={{flex: 1}}>
-            <TouchableOpacity
-              style={{
-                flex: 1,
-                backgroundColor: 'red',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-              onPress={() => this.props.navigation.navigate('Script')}
-              >
-              <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>
-                Script
-              </Text>
-            </TouchableOpacity>
-          </View>
+          </TouchableOpacity>
         </View>
-        {audio.map(testInfo => {
-          return (
-            <Audio
-              title={testInfo.title}
-              key={testInfo.title}
-              handle={() => {
-                this.props.navigation.navigate('PlayMusic', {
-                  id: testInfo.title,
-                  filepath: testInfo.url,
-                });
-              }}
-            />
-          );
-        })}
-      </ScrollView>
-    );
-  }
-}
+      </View>
+      {audio.map(testInfo => {
+        return (
+          <Audio
+            title={testInfo.title}
+            key={testInfo.title}
+            handle={() => {
+              props.navigation.navigate('PlayMusic', {
+                id: testInfo.title,
+                filepath: testInfo.url,
+              });
+            }}
+          />
+        );
+      })}
+    </ScrollView>
+  );
+};
+export default PlayList;

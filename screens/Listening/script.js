@@ -1,10 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {StyleSheet, Dimensions, View, Text} from 'react-native';
 import IconBack from './components/IconBack';
 import Pdf from 'react-native-pdf';
 
-export default class Script extends Component {
-  render() {
+ const Script = (props) =>  {
     const source = require('./pdf/hoithoaitienganh.pdf');
     return (
       <View style={styles.container}>
@@ -18,7 +17,7 @@ export default class Script extends Component {
               alignItems: 'center',
             }}>
             <View style={{flex: 1}}>
-              <IconBack navigation={this.props.navigation} screen="PlayList"/>
+              <IconBack navigation={props.navigation} screen="PlayList"/>
             </View>
             <Text
               style={{
@@ -34,7 +33,6 @@ export default class Script extends Component {
         <Pdf source={source} style={styles.pdf} />
       </View>
     );
-  }
 }
 
 const styles = StyleSheet.create({
@@ -49,3 +47,6 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height,
   },
 });
+
+
+export default Script;

@@ -1,12 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
-import React, {Component} from 'react';
+import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {
@@ -29,19 +21,14 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-export default class Splash extends Component {
-  render()  {
-  
+const Splash = () => {
   return (
     <View style={styles.container}>
-      <Image style={styles.logo}
-            source={require('../images/logo.png')}
-      ></Image>
+      <Image style={styles.logo} source={require('../images/logo.png')} />
       <Text style={styles.title}>Ứng dụng học tiếng Anh</Text>
     </View>
   );
 };
-}
 
 const styles = StyleSheet.create({
   container: {
@@ -54,16 +41,18 @@ const styles = StyleSheet.create({
   logo: {
     height: 100,
     width: 100,
-    justifyContent:'center',
-    alignItems:'center',
+    justifyContent: 'center',
+    alignItems: 'center',
     marginBottom: 40,
   },
   title: {
-    width:280,
+    width: 280,
     height: 45,
     fontSize: 21,
-    textAlign:'center',
-    justifyContent:'center',
-    alignItems:'center',
+    textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
+
+export default Splash;

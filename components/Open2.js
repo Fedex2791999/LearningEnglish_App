@@ -1,13 +1,5 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
-import React, {Component} from 'react';
-import flatList from '../data/flatList';
+import React from 'react';
+import {flatList} from '../data/flatList';
 import {
   StyleSheet,
   View,
@@ -17,52 +9,47 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-class FlatListItem extends React.Component {
-  render() {
-    return (
-      <View
-        style={{
-          flex: 1,
-        }}>
-        <View style={styles.items}>
-          <Image style={styles.logo} source={{uri: this.props.item.img}} />
-          <Text style={styles.text}>{this.props.item.key}</Text>
-        </View>
+const FlatListItem = props => {
+  return (
+    <View
+      style={{
+        flex: 1,
+      }}>
+      <View style={styles.items}>
+        <Image style={styles.logo} source={{uri: props.item.img}} />
+        <Text style={styles.text}>{props.item.key}</Text>
       </View>
-    );
-  }
-}
+    </View>
+  );
+};
 
-export default class Open2 extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.title}>Chọn chủ đề mà bạn thích</Text>
-        </View>
-        {/* header */}
-        <View style={styles.line} />
-        <View style={styles.body}>
-          <View style={styles.list}>
-            <FlatList
-              data={flatList}
-              renderItem={({item, index}) => {
-                return (
-                  <TouchableOpacity
-                    style={styles.content}
-                    onPress={() => this.props.navigation.navigate('Open3')}>
-                    <FlatListItem item={item} index={index} />
-                  </TouchableOpacity>
-                );
-              }}
-            />
-          </View>
-        </View>
-        {/* body */}
+const Open2 = ({navigation}) => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.title}>Chọn chủ đề mà bạn thích</Text>
       </View>
-    );
-  }
-}
+      {/* header */}
+      <View style={styles.line} />
+      <View style={styles.body}>
+        <View style={styles.list}>
+          <FlatList
+            data={flatList}
+            renderItem={({item, index}) => {
+              return (
+                <TouchableOpacity
+                  style={styles.content}
+                  onPress={() => navigation.navigate('Open3')}>
+                  <FlatListItem item={item} index={index} />
+                </TouchableOpacity>
+              );
+            }}
+          />
+        </View>
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -122,3 +109,4 @@ const styles = StyleSheet.create({
     width: 56,
   },
 });
+export default Open2;

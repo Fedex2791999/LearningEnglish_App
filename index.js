@@ -1,27 +1,25 @@
-/**
- * @format
- */
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import {AppRegistry} from 'react-native';
 import Splash from './components/Splash';
-import App from './App';
+import AppNavigator from './AppNavigator';
 import {name as appName} from './app.json';
 
+const Main = () => {
+  const [isLoading, setLoading] = useState(true);
+  const loadingApp = () => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  };
 
-class Main extends Component {
-  constructor(props){
-    super(props);
-    this.state = {currentScreen: 'Splash'};
-    setTimeout(() =>{
-      console.log('Do some thing')
-      console.disableYellowBox = true
-      this.setState({ currentScreen: 'App' })
-    }, 3000)
-  }
-  render(){
-    const { currentScreen } = this.state
-    let mainScreen = currentScreen === 'Splash' ? <Splash /> : <App />
-    return mainScreen
-  }
-}
+  useEffect(() => {
+    console.log('A');
+    loadingApp();
+    return () => {
+      console.log('B');
+    };
+  }, []);
+  console.log('C');
+  return isLoading == true ? <Splash /> : <AppNavigator />;
+};
 AppRegistry.registerComponent(appName, () => Main);

@@ -1,11 +1,9 @@
 import React from 'react';
 import SvgUri from 'react-native-svg-uri';
-
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import {createStackNavigator} from 'react-navigation-stack';
-
-import Login from './components/Login';
+import LoginScreen from './components/Login';
 import Open1 from './components/Open1';
 import Open2 from './components/Open2';
 import Open3 from './components/Open3';
@@ -14,29 +12,24 @@ import HomeScreen from './screens/HomeScreen';
 import ChartsScreen from './screens/ChartsScreen';
 import ProflieScreen from './screens/ProfileScreen';
 import StoreScreen from './screens/StoreScreen';
-
 import NewWord from './screens/Volcabulary/views/VocabularyScreen/NewWord/NewWord';
 import NewWord2 from './screens/Volcabulary/views/VocabularyScreen/NewWord/NewWord2';
 import NewWord3 from './screens/Volcabulary/views/VocabularyScreen/NewWord/NewWord3';
 import NewWord4 from './screens/Volcabulary/views/VocabularyScreen/NewWord/NewWord4';
-
 import Sentence from './screens/Volcabulary/views/VocabularyScreen/Sentence/Sentence';
 import Sentence2 from './screens/Volcabulary/views/VocabularyScreen/Sentence/Sentence2';
 import Sentence3 from './screens/Volcabulary/views/VocabularyScreen/Sentence/Sentence3';
 import Sentence4 from './screens/Volcabulary/views/VocabularyScreen/Sentence/Sentence4';
 import Point from './screens/Volcabulary/views/Point/index';
-
 import PlayList from './screens/Listening/index';
 import Player from './screens/Listening/player';
 import PlayMusic from './screens/Listening/playMusic';
-import Script from './screens/Listening/script';
-
 import Listening from './screens/Listening/Listen';
 import Listening2 from './screens/Listening/Listen2';
 import Listening3 from './screens/Listening/Listen3';
 import Listening4 from './screens/Listening/Listen4';
-// import Script from './screens/Listening/script';
-//listen  who you are 
+import Script from './screens/Listening/script';
+//listen  who you are
 const HomeStack = createStackNavigator(
   {
     Home: {screen: HomeScreen},
@@ -197,7 +190,9 @@ tabNavigator.path = '';
 
 const authenStack = createStackNavigator(
   {
-    Login: {screen: Login},
+    Login:  {
+      screen: LoginScreen
+    },
     SignUp: {
       screen: SignUp,
     },
@@ -209,7 +204,7 @@ const authenStack = createStackNavigator(
     // headerBackground: 'red'
   },
 );
-const App = createSwitchNavigator({
+const AppNavigator = createSwitchNavigator({
   Authen: authenStack,
   Sentence4: {screen: Sentence4},
   Sentence3: {screen: Sentence3},
@@ -237,4 +232,4 @@ const App = createSwitchNavigator({
   Open2: {screen: Open2},
   Open3: {screen: Open3},
 });
-export default createAppContainer(App);
+export default createAppContainer(AppNavigator);

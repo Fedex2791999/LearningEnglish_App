@@ -1,4 +1,4 @@
-var flatList = [
+ const flatList = [
   {
     key: 'Luyện trí não',
     img:
@@ -27,4 +27,4 @@ var flatList = [
     img: 'https://cdn.dribbble.com/users/472/screenshots/191949/other_icon.png',
   },
 ];
-module.exports = flatList;
+export {flatList}

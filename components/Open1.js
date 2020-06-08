@@ -1,76 +1,60 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
-import React, {Component} from 'react';
+import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 
-export default class Open1 extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.title}>Chọn một hướng đi</Text>
-        </View>
-        {/* header */}
-        <View style={styles.line} />
-
-        <View style={styles.body}>
-          <TouchableOpacity
-            style={styles.content}
-            onPress={() => this.props.navigation.navigate('Open2')}>
-            <View style={styles.top}>
-              <Image
-                style={styles.logo}
-                source={require('../images/logo.png')}
-              />
-            </View>
-            <View style={styles.bot}>
-              <Text
-                style={{
-                  fontWeight: 'bold',
-                  fontSize: 20,
-                  textDecorationLine: 'underline',
-                }}>
-                Bạn đã biết tiếng Anh một chút ?
-              </Text>
-              <Text style={{fontSize: 19}}>Bạn đã biết tiếng Anh một chút</Text>
-            </View>
-          </TouchableOpacity>
-          {/* content */}
-
-          <TouchableOpacity style={styles.content}>
-            <View style={styles.top}>
-              <Image
-                style={styles.logo}
-                source={require('../images/logo.png')}
-              />
-            </View>
-            <View style={styles.bot}>
-              <Text
-                style={{
-                  fontWeight: 'bold',
-                  fontSize: 20,
-                  textDecorationLine: 'underline',
-                }}>
-                Bạn đã biết tiếng Anh một chút ?
-              </Text>
-              <Text style={{fontSize: 19}}>Bạn đã biết tiếng Anh một chút</Text>
-            </View>
-          </TouchableOpacity>
-          {/* content */}
-        </View>
-        {/* body */}
+const Open1 = (props) => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.title}>Chọn một hướng đi</Text>
       </View>
-    );
-  }
-}
+      {/* header */}
+      <View style={styles.line} />
+
+      <View style={styles.body}>
+        <TouchableOpacity
+          style={styles.content}
+          onPress={() => props.navigation.navigate('Open2')}>
+          <View style={styles.top}>
+            <Image style={styles.logo} source={require('../images/logo.png')} />
+          </View>
+          <View style={styles.bot}>
+            <Text
+              style={{
+                fontWeight: 'bold',
+                fontSize: 20,
+                textDecorationLine: 'underline',
+              }}>
+              Bạn đã biết tiếng Anh một chút ?
+            </Text>
+            <Text style={{fontSize: 19}}>Bạn đã biết tiếng Anh một chút</Text>
+          </View>
+        </TouchableOpacity>
+        {/* content */}
+
+        <TouchableOpacity style={styles.content}>
+          <View style={styles.top}>
+            <Image style={styles.logo} source={require('../images/logo.png')} />
+          </View>
+          <View style={styles.bot}>
+            <Text
+              style={{
+                fontWeight: 'bold',
+                fontSize: 20,
+                textDecorationLine: 'underline',
+              }}>
+              Bạn đã biết tiếng Anh một chút ?
+            </Text>
+            <Text style={{fontSize: 19}}>Bạn đã biết tiếng Anh một chút</Text>
+          </View>
+        </TouchableOpacity>
+        {/* content */}
+      </View>
+      {/* body */}
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -137,3 +121,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+export default Open1;

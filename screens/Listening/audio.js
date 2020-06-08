@@ -1,17 +1,11 @@
-import React, { Component } from 'react';
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  Image,
-} from 'react-native';
+import React, {Component} from 'react';
+import {StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native';
 
-const Header = ({ children, style }) => (
+const Header = ({children, style}) => (
   <Text style={[styles.header, style]}>{children}</Text>
 );
 
-const ButtonTitle = ({ children, onPress }) => (
+const ButtonTitle = ({children, onPress}) => (
   <TouchableOpacity style={styles.buttonTitle} onPress={onPress}>
     <Image style={styles.icon} source={require('./resources/music_icon.png')} />
     <Header>{children}</Header>
@@ -23,28 +17,28 @@ const icon = {
   image2: require('./resources/star2.png'),
 };
 
-const ButtonMark = ({ path, onPress }) => (
+const ButtonMark = ({path, onPress}) => (
   <TouchableOpacity onPress={onPress}>
     <Image source={path} style={styles.buttonMark} />
   </TouchableOpacity>
 );
 
-const Feature = ({ title, onPress1, remember, onPress2 }) => (
+const Feature = ({title, onPress1, remember, onPress2}) => (
   <View style={styles.feature}>
     <ButtonTitle onPress={onPress1}>{title}</ButtonTitle>
     {remember ? (
       <ButtonMark path={icon.image2} onPress={onPress2} />
     ) : (
-        <ButtonMark path={icon.image1} onPress={onPress2} />
-      )}
+      <ButtonMark path={icon.image1} onPress={onPress2} />
+    )}
   </View>
 );
 
-function addFavourit(component) {
+const addFavourite = component => {
   component.setState({
     remember: !component.state.remember,
   });
-}
+};
 
 export default class Audio extends Component {
   constructor(props) {
@@ -60,7 +54,7 @@ export default class Audio extends Component {
         title={this.props.title}
         onPress1={this.props.handle}
         onPress2={() => {
-          return addFavourit(this);
+          return addFavourite(this);
         }}
         remember={this.state.remember}
       />

@@ -1,4 +1,4 @@
-var openList = [
+const  openList = [
   {
     'key': 'Dễ', 'time': '5 phút mỗi ngày'
   },
@@ -13,4 +13,5 @@ var openList = [
   },
 
 ];
-module.exports = openList;
+
+export {openList}

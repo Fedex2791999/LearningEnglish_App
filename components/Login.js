@@ -1,12 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {
@@ -23,115 +15,89 @@ import {
   Keyboard,
   Alert,
 } from 'react-native';
-
-export default class Login extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      EmailValue: '',
-      PassWordValue: '',
-    };
-  }
-
-  checkPassword = (email, pass) => {
+const Login = ({navigation}) => {
+  const [EmailValue, setEmailValue] = useState('');
+  const [PassWordValue, setPassWordValue] = useState('');
+  const checkPassword = (email, pass) => {
     if (email === 'Fedex2791999' && pass === '123456') {
-      this.props.navigation.navigate('Open2');
+      navigation.navigate('Open2');
     } else if (email === '' && pass === 'cu') {
-      this.props.navigation.navigate('Main');
+      navigation.navigate('Main');
     } else {
       Alert.alert('sai mat khau');
     }
   };
 
-  render() {
-    const Divider = props => {
-      return (
-        <View {...props}>
-          <View style={styles.line} />
-          <Text style={styles.orText}>HOẶC</Text>
-          <View style={styles.line} />
+  return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View style={styles.container}>
+        <View style={styles.up}>
+          <Image style={styles.logo} source={require('../images/logo.png')} />
+          <Text style={styles.title}>Go English </Text>
         </View>
-      );
-    };
-    return (
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.container}>
-          <View style={styles.up}>
-            <Image style={styles.logo} source={require('../images/logo.png')} />
-            <Text style={styles.title}>Go English </Text>
-          </View>
 
-          <View style={styles.box_shadow}>
-            <View style={styles.box_input}>
-              <View style={styles.layout_input}>
-                <Text style={styles.intro}>Ứng dụng học Tiếng Anh</Text>
-                <Text style={styles.intro}>
-                  {' '}
-                  Học tiếng Anh mọi lúc, mọi nơi
+        <View style={styles.box_shadow}>
+          <View style={styles.box_input}>
+            <View style={styles.layout_input}>
+              <Text style={styles.intro}>Ứng dụng học Tiếng Anh</Text>
+              <Text style={styles.intro}> Học tiếng Anh mọi lúc, mọi nơi</Text>
+              <View style={{marginTop: 7}}>
+                <Text style={{fontSize: 15}}>
+                  Hãy đăng nhập ngay để bắt đầu học thôi!!!
                 </Text>
-                <View style={{marginTop: 7}}>
-                  <Text style={{fontSize: 15}}>
-                    Hãy đăng nhập ngay để bắt đầu học thôi!!!
-                  </Text>
-                </View>
-
-                <View style={styles.textInputContainer}>
-                  <TextInput
-                    style={styles.textInput}
-                    textContentType="emailAddress"
-                    keyboardType="email-address"
-                    placeholder="Nhập email hoặc username"
-                    onChangeText={text => {
-                      this.setState({EmailValue: text});
-                    }}
-                  />
-                </View>
-                <View style={styles.textInputContainer}>
-                  <TextInput
-                    style={styles.textInput}
-                    placeholder="Nhập mật khẩu"
-                    secureTextEntry={true}
-                    onChangeText={text => {
-                      this.setState({PassWordValue: text});
-                    }}
-                  />
-                </View>
               </View>
 
-              {/* <Divider style={styles.divider} /> */}
+              <View style={styles.textInputContainer}>
+                <TextInput
+                  style={styles.textInput}
+                  textContentType="emailAddress"
+                  keyboardType="email-address"
+                  placeholder="Nhập email hoặc username"
+                  onChangeText={email => {
+                    setEmailValue(email);
+                  }}
+                />
+              </View>
+              <View style={styles.textInputContainer}>
+                <TextInput
+                  style={styles.textInput}
+                  placeholder="Nhập mật khẩu"
+                  secureTextEntry={true}
+                  onChangeText={pass => {
+                    setPassWordValue(pass);
+                  }}
+                />
+              </View>
             </View>
           </View>
-
-          <TouchableOpacity
-            style={styles.loginButton}
-            onPress={() =>
-              this.checkPassword(
-                this.state.EmailValue,
-                this.state.PassWordValue,
-              )
-            }>
-            <Text style={styles.tittleButton}> Đăng nhập </Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.facebookButton}>
-            <Text style={styles.tittleButton}> Đăng nhập với Facebook </Text>
-          </TouchableOpacity>
-          <View style={styles.signUp}>
-            <Text style={{color: '#212529', fontSize: 16, marginLeft: 20}}>
-              Bạn chưa có tài khoản?{' '}
-            </Text>
-
-            <Text
-              style={styles.textSignUp}
-              onPress={() => this.props.navigation.navigate('SignUp')}>
-              Đăng ký nhanh
-            </Text>
-          </View>
         </View>
-      </TouchableWithoutFeedback>
-    );
-  }
-}
+
+        <TouchableOpacity
+          style={styles.loginButton}
+          onPress={() => {
+            console.log('Bui Quang Huy');
+            checkPassword(EmailValue, PassWordValue);
+          }}>
+          <Text style={styles.tittleButton}> Đăng nhập </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.facebookButton}>
+          <Text style={styles.tittleButton}> Đăng nhập với Facebook </Text>
+        </TouchableOpacity>
+        <View style={styles.signUp}>
+          <Text style={{color: '#212529', fontSize: 16, marginLeft: 20}}>
+            Bạn chưa có tài khoản?{' '}
+          </Text>
+
+          <Text
+            style={styles.textSignUp}
+            onPress={() => navigation.navigate('SignUp')}>
+            Đăng ký nhanh
+          </Text>
+        </View>
+      </View>
+    </TouchableWithoutFeedback>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -248,3 +214,4 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
 });
+export default Login;

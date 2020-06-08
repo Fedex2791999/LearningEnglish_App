@@ -1,16 +1,15 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Alert, Image, TouchableOpacity} from 'react-native';
 import Sound from 'react-native-sound';
 
-function playSound(url) {
+const playSound = url => {
   Sound.setCategory('Playback');
 
-  var Audio = new Sound(url, error => {
+  let Audio = new Sound(url, error => {
     if (error) {
       console.log('failed: ', error);
       return;
     }
-
     Audio.play(success => {
       if (success) {
         console.log('complete!');
@@ -20,17 +19,17 @@ function playSound(url) {
       }
     });
   });
-}
+};
 
-class IconSound extends Component {
-  render() {
-    const {styles, img, urlSound} = this.props;
-    return (
-      <TouchableOpacity onPress={()=> {return playSound(urlSound)}}>
-        <Image style={styles} source={img} />
-      </TouchableOpacity>
-    );
-  }
-}
+const IconSound = ({styles, img, urlSound}) => {
+  return (
+    <TouchableOpacity
+      onPress={() => {
+        return playSound(urlSound);
+      }}>
+      <Image style={styles} source={img} />
+    </TouchableOpacity>
+  );
+};
 
 export default IconSound;

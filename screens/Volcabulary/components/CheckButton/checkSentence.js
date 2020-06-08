@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {
   StyleSheet,
   View,
@@ -8,15 +8,10 @@ import {
   Alert,
 } from 'react-native';
 
-var widthScreen = 0.9 * Dimensions.get('window').width;
+const widthScreen = 0.9 * Dimensions.get('window').width;
 
-class CheckButton extends Component {
-
-  constructor(props) {
-    super(props);
-  }
-
-  handle = (correctSentence, answer) => {
+const CheckButton = props => {
+  const handle = (correctSentence, answer) => {
     if (correctSentence === answer) {
       Alert.alert(
         answer,
@@ -24,8 +19,8 @@ class CheckButton extends Component {
         [
           {
             text: 'Tiếp tục',
-            onPress: () => this.props.navigation.navigate('Point')
-          }
+            onPress: () => props.navigation.navigate('Point'),
+          },
         ],
         {cancelable: false},
       );
@@ -36,12 +31,12 @@ class CheckButton extends Component {
         [
           {
             text: 'Chọn lại',
-            onPress: () => this.props.navigation.navigate('Sentence2'),
+            onPress: () => props.navigation.navigate('Sentence2'),
             style: 'cancel',
           },
           {
             text: 'Tiếp tục',
-            onPress: () => this.props.navigation.navigate('Point')
+            onPress: () => props.navigation.navigate('Point'),
           },
         ],
         {cancelable: false},
@@ -49,27 +44,25 @@ class CheckButton extends Component {
     }
   };
 
-  render() {
-    const {check, correctSentence, answer} = this.props;
+  const {check, correctSentence, answer} = props;
 
-    var word = answer.join(' ');
+  let word = answer.join(' ');
 
-    return (
-      <View>
-        <TouchableOpacity
-          style={[
-            styles.container,
-            check
-              ? styles.changeBackgroundColorGray
-              : styles.changeBackgroundColorGreen,
-          ]}
-          onPress={() => this.handle(correctSentence, word)}>
-          <Text style={styles.text}>KIỂM TRA</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
-}
+  return (
+    <View>
+      <TouchableOpacity
+        style={[
+          styles.container,
+          check
+            ? styles.changeBackgroundColorGray
+            : styles.changeBackgroundColorGreen,
+        ]}
+        onPress={() => handle(correctSentence, word)}>
+        <Text style={styles.text}>KIỂM TRA</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 const styles = StyleSheet.create({
   container: {
     borderRadius: 8,

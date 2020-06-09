@@ -52,34 +52,54 @@ const StoreScreen = () => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>
-        <Text style={styles.header}>Translate</Text>
-        <TextInput
-          placeholder="Nhập từ cần tra"
-          onChangeText={INPUT => setInput(INPUT)}
-          value={INPUT}
-          style={styles.In}
-          keyboardType="default"
-        />
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'center',
+            marginTop: 40,
+          }}>
+          <Image
+            style={{width: 85, height: 85}}
+            source={{uri: 'https://i.ibb.co/Jrm1RJ2/test3.png'}}
+          />
+          <Text style={styles.header}>Translate</Text>
+        </View>
+        <View style={{marginTop: 40}}>
+          <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+            <TextInput
+              placeholder="Nhập từ cần tra"
+              onChangeText={INPUT => setInput(INPUT)}
+              value={INPUT}
+              style={styles.In}
+              keyboardType="default"
+              multiline = {true}
+              numberOfLines = {5}
+            />
+          </View>
 
-        <TouchableOpacity
-          onPress={() => TranslateToVietNamese()}
-          style={styles.buttonVietNam}>
-          <Text style={{color: 'white'}}>Eng to Vie</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => TranslateToEnglish()}
-          style={styles.buttonEnglish}>
-          <Text style={{color: 'white'}}>Vie to Eng</Text>
-        </TouchableOpacity>
-
-        <Text
-          style={styles.Out}
-          editable={false}
-          maxLength={200}
-          multiline={true}
-          numberOfLines={4}>
-          {OUTPUT}
-        </Text>
+          <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+            <TouchableOpacity
+              onPress={() => TranslateToVietNamese()}
+              style={{...styles.button, marginRight: 15}}>
+              <Text style={{color: 'white'}}>Eng - Viet</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => TranslateToEnglish()}
+              style={{...styles.button, marginLeft: 15}}>
+              <Text style={{color: 'white'}}>Viet - Eng</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+            <Text
+              style={styles.Out}
+              editable={false}
+              // maxLength={200}
+              multiline={true}
+              numberOfLines={5}>
+              {OUTPUT}
+            </Text>
+          </View>
+        </View>
       </View>
     </TouchableWithoutFeedback>
   );
@@ -87,61 +107,40 @@ const StoreScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
-    borderColor: '#385999',
-    padding: 15,
-    elevation: 4,
-    shadowColor: '#000000',
-    shadowRadius: 5,
-    borderRadius: 5,
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#ffff',
   },
   In: {
-    height: 100,
     borderWidth: 1,
     borderColor: '#385999',
     width: 300,
-    borderRadius: 15,
+    borderRadius: 7,
     margin: 15,
-    padding: 7,
-    fontSize: 21,
+    fontSize: 15,
+    backgroundColor: '#dedede',
   },
   Out: {
-    height: 100,
+    height: 110,
     borderWidth: 1,
     borderColor: '#385999',
     width: 300,
-    borderRadius: 15,
+    borderRadius: 7,
     margin: 15,
     marginBottom: 30,
     padding: 7,
-    fontSize: 21,
+    fontSize: 15,
+    backgroundColor: '#dedede',
   },
-  buttonVietNam: {
-    width: 300,
-    alignItems: 'center',
-    backgroundColor: '#385999',
-    padding: 15,
+  button: {
+    backgroundColor: 'rgb(63, 106, 150)',
+    paddingVertical: 5,
     borderRadius: 7,
-    margin: 19,
-  },
-  buttonEnglish: {
-    width: 300,
-    alignItems: 'center',
-    backgroundColor: '#385999',
-    padding: 15,
-    borderRadius: 7,
-    margin: 19,
+    paddingHorizontal: 20,
   },
   header: {
-    fontSize: 34,
-    color: 'blue',
-    paddingBottom: 10,
-    marginBottom: 40,
-    borderBottomColor: 'red',
-    borderBottomWidth: 1,
+    fontSize: 40,
+    color: 'rgb(63, 106, 150)',
     fontWeight: 'bold',
+    marginTop: 20,
   },
 });
 export default StoreScreen;

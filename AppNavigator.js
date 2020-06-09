@@ -1,5 +1,6 @@
 import React from 'react';
 import SvgUri from 'react-native-svg-uri';
+
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import {createStackNavigator} from 'react-navigation-stack';
@@ -45,10 +46,10 @@ HomeStack.navigationOptions = {
   tabBarIcon: ({focused, horizontal, tintColor}) =>
     focused ? (
       <SvgUri
-        width="40"
-        height="40"
+      width="40"
+      height="40"
         source={{
-          uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/icons/learn.svg',
+          uri: 'https://svgshare.com/i/Lvp.svg',
         }}
       />
     ) : (
@@ -56,8 +57,7 @@ HomeStack.navigationOptions = {
         width="40"
         height="40"
         source={{
-          uri:
-            'https://d35aaqx5ub95lt.cloudfront.net/images/icons/learn-inactive2.svg',
+          uri: 'https://svgshare.com/i/LuK.svg',
         }}
       />
     ),
@@ -80,20 +80,18 @@ ChartsStack.navigationOptions = {
   tabBarIcon: ({focused, horizontal, tintColor}) =>
     focused ? (
       <SvgUri
-        width="35"
-        height="35"
-        // source={{ uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/leagues/badge_bronze_blank.svg' }}
+        width="40"
+        height="40"
         source={{
-          uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/icons/shop.svg',
+          uri: 'https://svgshare.com/i/Lui.svg',
         }}
       />
     ) : (
       <SvgUri
-        width="35"
-        height="35"
+        width="40"
+        height="40"
         source={{
-          uri:
-            'https://d35aaqx5ub95lt.cloudfront.net/images/icons/shop-inactive2.svg',
+          uri: 'https://svgshare.com/i/LvE.svg',
         }}
       />
     ),
@@ -118,7 +116,7 @@ StoreStack.navigationOptions = {
         width="40"
         height="40"
         source={{
-          uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/icons/discuss.svg',
+          uri: 'https://svgshare.com/i/LvF.svg',
         }}
       />
     ) : (
@@ -126,8 +124,7 @@ StoreStack.navigationOptions = {
         width="40"
         height="40"
         source={{
-          uri:
-            'https://d35aaqx5ub95lt.cloudfront.net/images/icons/discuss-inactive.svg',
+          uri: 'https://svgshare.com/i/LuL.svg',
         }}
       />
     ),
@@ -152,7 +149,7 @@ ProfileStack.navigationOptions = {
         width="45"
         height="45"
         source={{
-          uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/icons/profile.svg',
+          uri: 'https://svgshare.com/i/Lv_.svg',
         }}
       />
     ) : (
@@ -160,8 +157,7 @@ ProfileStack.navigationOptions = {
         width="45"
         height="45"
         source={{
-          uri:
-            'https://d35aaqx5ub95lt.cloudfront.net/images/icons/profile-inactive2.svg',
+          uri: 'https://svgshare.com/i/Lw7.svg',
         }}
       />
     ),
@@ -190,8 +186,8 @@ tabNavigator.path = '';
 
 const authenStack = createStackNavigator(
   {
-    Login:  {
-      screen: LoginScreen
+    Login: {
+      screen: LoginScreen,
     },
     SignUp: {
       screen: SignUp,

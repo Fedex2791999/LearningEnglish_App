@@ -2,29 +2,27 @@ import React from 'react';
 
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 
-const HeaderProfile = ({name, country, url}) => {
+const HeaderProfile = ({name, country}) => {
   return (
     <View
       style={{
         flex: 1,
         flexDirection: 'column',
         alignItems: 'center',
+        marginTop: 20
       }}>
       <TouchableOpacity
         style={{
-          flex: 2,
           justifyContent: 'center',
         }}>
         <Image
-          style={{width: 100, height: 100}}
-          source={url}
-          style={{width: 100, height: 100, borderRadius: 200 / 2}}
+          style={{width: 100, height: 100, borderRadius: 50}}
+          source={{uri: 'https://i.ibb.co/Bc5zQmM/8.jpg'}}
         />
       </TouchableOpacity>
 
       <View
         style={{
-          flex: 1,
           alignItems: 'center',
           justifyContent: 'flex-start',
         }}>

@@ -10,8 +10,10 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@expo/vector-icons": "^10.2.0",
     "@react-native-community/art": "^1.2.0",
     "@react-native-community/slider": "^2.0.9",
+    "expo-font": "^8.1.1",
     "react": "16.9.0",
     "react-native": "^0.62.2",
     "react-native-dropdownalert": "^4.2.0",

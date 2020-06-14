@@ -12,6 +12,7 @@ import {
   Alert,
   Dimensions,
 } from 'react-native';
+import auth from '@react-native-firebase/auth';
 
 export default class SignUp extends React.Component {
   constructor() {
@@ -23,6 +24,27 @@ export default class SignUp extends React.Component {
       Username: '',
       Email: '',
     };
+  }
+
+  createUser = () => {
+    auth()
+      .createUserWithEmailAndPassword(this.state.Email, this.state.Password)
+      .then(() => {
+        console.log('User account created & signed in!');
+        this.props.navigation.navigate('Main');
+      })
+      .catch(error => {
+        if (error.code === 'auth/email-already-in-use') {
+          Alert.alert('That email address is already in use!');
+        }
+    
+        if (error.code === 'auth/invalid-email') {
+          Alert.alert('That email address is invalid!');
+        }
+    
+        console.error(error);
+        this.props.navigation.navigate('Login');
+      })
   }
 
   Simple_If_Else = () => {
@@ -146,7 +168,7 @@ export default class SignUp extends React.Component {
 
           <TouchableOpacity
             style={styles.button}
-            onPress={this.Simple_If_Else.bind(this)}>
+            onPress={this.createUser}>
             <Text style={styles.tittleButton}>Đăng ký</Text>
           </TouchableOpacity>
         </View>

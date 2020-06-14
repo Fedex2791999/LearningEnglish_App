@@ -23,6 +23,7 @@ import {
   Keyboard,
   Alert,
 } from 'react-native';
+import auth from '@react-native-firebase/auth'
 
 export default class Login extends Component {
   constructor() {
@@ -32,6 +33,27 @@ export default class Login extends Component {
       EmailValue: '',
       PassWordValue: '',
     };
+  }
+
+  logIn = () => {
+    auth()
+      .signInWithEmailAndPassword(this.state.EmailValue, this.state.PassWordValue)
+      .then(() => {
+        console.log('User account created & signed in!');
+        this.props.navigation.navigate('Main');
+      })
+      .catch(error => {
+        if (error.code === 'auth/wrong-password') {
+          Alert.alert('That password is wrong!');
+        }
+    
+        if (error.code === 'auth/invalid-email') {
+          Alert.alert('That email address is invalid!');
+        }
+    
+        console.error(error);
+        this.props.navigation.navigate('Login');
+      })
   }
 
   checkPassword = (email, pass) => {
@@ -105,12 +127,7 @@ export default class Login extends Component {
 
           <TouchableOpacity
             style={styles.loginButton}
-            onPress={() =>
-              this.checkPassword(
-                this.state.EmailValue,
-                this.state.PassWordValue,
-              )
-            }>
+            onPress={this.logIn}>
             <Text style={styles.tittleButton}> Đăng nhập </Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.facebookButton}>

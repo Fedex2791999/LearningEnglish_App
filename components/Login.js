@@ -30,21 +30,12 @@ const Login = ({navigation}) => {
     }
   };
 
-<<<<<<< HEAD
   const logIn = (email, pass) => {
     auth()
       .signInWithEmailAndPassword(email, pass)
       .then(() => {
         console.log('User logined in!');
         navigation.navigate('Main');
-=======
-  logIn = () => {
-    auth()
-      .signInWithEmailAndPassword("EmailValue", "PassWordValue")
-      .then(() => {
-        console.log('User account created & signed in!');
-        this.props.navigation.navigate('Main');
->>>>>>> add-authorian
       })
       .catch(error => {
         if (error.code === 'auth/wrong-password') {
@@ -56,11 +47,7 @@ const Login = ({navigation}) => {
         }
 
         console.error(error);
-<<<<<<< HEAD
         navigation.navigate('Login');
-=======
-        this.props.navigation.navigate('Login');
->>>>>>> add-authorian
       })
   }
 

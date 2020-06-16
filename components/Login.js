@@ -15,6 +15,8 @@ import {
   Keyboard,
   Alert,
 } from 'react-native';
+import auth from '@react-native-firebase/auth'
+
 const Login = ({navigation}) => {
   const [EmailValue, setEmailValue] = useState('');
   const [PassWordValue, setPassWordValue] = useState('');
@@ -27,6 +29,27 @@ const Login = ({navigation}) => {
       Alert.alert('sai mat khau');
     }
   };
+
+  logIn = () => {
+    auth()
+      .signInWithEmailAndPassword("EmailValue", "PassWordValue")
+      .then(() => {
+        console.log('User account created & signed in!');
+        this.props.navigation.navigate('Main');
+      })
+      .catch(error => {
+        if (error.code === 'auth/wrong-password') {
+          Alert.alert('That password is wrong!');
+        }
+
+        if (error.code === 'auth/invalid-email') {
+          Alert.alert('That email address is invalid!');
+        }
+
+        console.error(error);
+        this.props.navigation.navigate('Login');
+      })
+  }
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>

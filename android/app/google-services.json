@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "513832179179",
+    "firebase_url": "https://doulingo-clone-ui.firebaseio.com",
+    "project_id": "doulingo-clone-ui",
+    "storage_bucket": "doulingo-clone-ui.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513832179179:android:5c7897d10ddc079f5235ae",
+        "android_client_info": {
+          "package_name": "com.ui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "513832179179-0auc7f0juai1co4723mp1d1qep73h72i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB87enfBizFFzUh0W97TupKyBoDbDKBJ_w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "513832179179-0auc7f0juai1co4723mp1d1qep73h72i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

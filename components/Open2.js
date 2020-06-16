@@ -14,6 +14,13 @@ const FlatListItem = props => {
     <View
       style={{
         flex: 1,
+        shadowColor: 'black',
+        shadowOffset: {
+          width: 0,
+          height: 6,
+        },
+        shadowOpacity: 0.37,
+        shadowRadius: 7.49,
       }}>
       <View style={styles.items}>
         <Image style={styles.logo} source={{uri: props.item.img}} />
@@ -64,45 +71,42 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'right',
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
   },
   body: {
     flex: 9,
     flexDirection: 'column',
-    justifyContent: 'flex-start', // Bắt đầu từ trên xuống dưới
+    justifyContent: 'flex-start',
     alignItems: 'center',
   },
-
-  line: {
-    height: 1,
-    backgroundColor: 'black',
-    justifyContent: 'center',
-  },
   list: {
-    marginTop: 30,
+    marginTop: 10,
   },
   text: {
     fontSize: 22,
-    marginLeft: 10,
+    marginLeft: 35,
     alignItems: 'center',
   },
   items: {
+    flexDirection: 'row',
     alignItems: 'center',
-    borderRadius: 6,
-    borderWidth: 3,
-    borderColor: 'red',
     padding: 10,
     marginTop: 15,
-    flexDirection: 'row',
     height: 70,
     width: 300,
+    borderRadius: 6,
+    borderWidth: 1,
+    // borderColor: '#b1b1b1',
+    overflow: 'hidden',
+    elevation: 12,
+    backgroundColor: '#ffff',
   },
   title: {
-    width: 320,
     height: 45,
     fontSize: 25,
-    textAlign: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
+    fontWeight: 'bold',
+    marginTop: 8,
   },
   logo: {
     height: 56,

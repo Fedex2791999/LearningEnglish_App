@@ -9,15 +9,19 @@ const HeaderProfile = ({name, country}) => {
         flex: 1,
         flexDirection: 'column',
         alignItems: 'center',
-        marginTop: 20
+        marginTop: 20,
       }}>
       <TouchableOpacity
         style={{
           justifyContent: 'center',
+          borderColor: '#ffff',
+          borderWidth: 3,
+          borderRadius: 50
         }}>
         <Image
-          style={{width: 100, height: 100, borderRadius: 50}}
+          style={{width: 100, height: 100,borderRadius: 80}}
           source={{uri: 'https://i.ibb.co/Bc5zQmM/8.jpg'}}
+          resizeMode = 'stretch'
         />
       </TouchableOpacity>
 
@@ -39,7 +43,8 @@ const HeaderProfile = ({name, country}) => {
           <Text
             style={{
               fontWeight: 'bold',
-              fontSize: 16,
+              fontSize: 12,
+              color: '#ffff'
             }}>
             {country}
           </Text>

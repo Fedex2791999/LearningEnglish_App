@@ -1,17 +1,15 @@
- const flatList = [
+const flatList = [
   {
     key: 'Luyện trí não',
-    img:
-      'https://i.ibb.co/4VNwCmy/209-2096032-brain-free-vector-icons-designed-by-popcorns-arts-removebg-preview.png',
+    img: 'https://i.ibb.co/Qmyj6RN/brain.png',
   },
   {
     key: 'Sự nghiệp',
-    img:
-      'http://www.meprogram.com.au/wp-content/uploads/2015/12/career-icon-350x350.png',
+    img: 'https://i.ibb.co/dpt574s/career.png',
   },
   {
     key: 'Học đường',
-    img: 'http://cdn.onlinewebfonts.com/svg/img_532964.png',
+    img: 'https://i.ibb.co/VSZTZfZ/study.png',
   },
   {
     key: 'Văn hóa',
@@ -19,12 +17,11 @@
   },
   {
     key: 'Du lịch',
-    img:
-      'https://cdn.dribbble.com/users/13395/screenshots/6455348/screen_shot_2019-05-08_at_3.32.42_pm.png',
+    img: 'https://i.ibb.co/JCF9D4Q/travel.png',
   },
   {
     key: 'Khác',
-    img: 'https://cdn.dribbble.com/users/472/screenshots/191949/other_icon.png',
+    img: 'https://i.ibb.co/KzJdDY7/diff.png',
   },
 ];
-export {flatList}
+export {flatList};

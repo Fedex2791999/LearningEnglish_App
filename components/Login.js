@@ -21,10 +21,8 @@ const Login = ({navigation}) => {
   const checkPassword = (email, pass) => {
     if (email === 'Fedex2791999' && pass === '123456') {
       navigation.navigate('Open2');
-    } else if (email === '' && pass === 'cu') {
-      navigation.navigate('Main');
     } else {
-      Alert.alert('sai mat khau');
+      Alert.alert('sai ten hoac mat khau');
     }
   };
 
@@ -75,7 +73,7 @@ const Login = ({navigation}) => {
         <TouchableOpacity
           style={styles.loginButton}
           onPress={() => {
-            console.log('Bui Quang Huy');
+            // console.log('Bui Quang Huy');
             checkPassword(EmailValue, PassWordValue);
           }}>
           <Text style={styles.tittleButton}> Đăng nhập </Text>

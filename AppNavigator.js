@@ -30,6 +30,8 @@ import Listening2 from './screens/Listening/Listen2';
 import Listening3 from './screens/Listening/Listen3';
 import Listening4 from './screens/Listening/Listen4';
 import Script from './screens/Listening/script';
+
+
 //listen  who you are
 const HomeStack = createStackNavigator(
   {
@@ -174,7 +176,7 @@ const tabNavigator = createBottomTabNavigator(
   },
   {
     tabBarOptions: {
-      style: {height: 80, paddingTop: 20, margin: 0},
+      style: {height: 80, paddingTop: 20, margin: 0,backgroundColor:'#eef2f4'},
     },
     navigationOptions: {
       header: null,

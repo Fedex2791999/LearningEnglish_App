@@ -20,17 +20,19 @@ const Profile = props => {
           height: heightScreen / 3,
           flexDirection: 'column',
           alignItems: 'center',
+          backgroundColor: '#75d46d',
+          borderBottomColor:'#75d46d',
+          borderBottomWidth: 1
         }}>
         <HeaderProfile name="Huy Bui" country="Hà Nội, Việt Nam" />
         <View
           style={{
             height: 3,
             width: 0.9 * widthScreen,
-            backgroundColor: '#f2f2f2',
           }}
         />
       </View>
-      <ScrollView style={{height: (2 * heightScreen) / 3}} >
+      <ScrollView style={{height: (2 * heightScreen) / 3}}  showsVerticalScrollIndicator={false}>
         <View
           style={{
             height: heightScreen / 5,
@@ -113,6 +115,7 @@ const Profile = props => {
             url={require('../../assets/images/logout.png')}
             navigation={props.navigation}
             nameScreen="Login"
+            borderNone = {true}
           />
         </View>
       </ScrollView>

@@ -4,7 +4,7 @@ import {View, Text, Dimensions, TouchableOpacity, Image} from 'react-native';
 import Icon
  from 'react-native-vector-icons/FontAwesome';
 const widthScreen = Dimensions.get('window').width;
-const BodyProfile = ({url, titletext, bodytext, navigation, nameScreen}) => {
+const BodyProfile = ({url, titletext, bodytext, navigation, nameScreen,borderNone}) => {
   return (
     <TouchableOpacity
       style={{
@@ -23,7 +23,7 @@ const BodyProfile = ({url, titletext, bodytext, navigation, nameScreen}) => {
           flexDirection: 'column',
         }}>
         <Text style={{fontSize: 20, fontWeight: 'bold'}}>{titletext}</Text>
-        <Text style={{fontSize: 18, color: '#a6a6a6', marginBottom:15}}>{bodytext}</Text>
+        <Text style={borderNone ? {fontSize: 18, color: '#a6a6a6', marginTop:10} : {fontSize: 18, color: '#a6a6a6', marginTop:10, borderBottomWidth: 1}}>{bodytext}</Text>
       </View>
     </TouchableOpacity>
   );

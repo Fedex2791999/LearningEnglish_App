@@ -15,6 +15,8 @@ import {
   Keyboard,
   Alert,
 } from 'react-native';
+import auth from '@react-native-firebase/auth'
+
 const Login = ({navigation}) => {
   const [EmailValue, setEmailValue] = useState('');
   const [PassWordValue, setPassWordValue] = useState('');
@@ -27,6 +29,27 @@ const Login = ({navigation}) => {
       Alert.alert('sai mat khau');
     }
   };
+
+  const logIn = (email, pass) => {
+    auth()
+      .signInWithEmailAndPassword(email, pass)
+      .then(() => {
+        console.log('User logined in!');
+        navigation.navigate('Main');
+      })
+      .catch(error => {
+        if (error.code === 'auth/wrong-password') {
+          Alert.alert('That password is wrong!');
+        }
+
+        if (error.code === 'auth/invalid-email') {
+          Alert.alert('That email address is invalid!');
+        }
+
+        console.error(error);
+        navigation.navigate('Login');
+      })
+  }
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -76,7 +99,7 @@ const Login = ({navigation}) => {
           style={styles.loginButton}
           onPress={() => {
             console.log('Bui Quang Huy');
-            checkPassword(EmailValue, PassWordValue);
+            logIn(EmailValue, PassWordValue);
           }}>
           <Text style={styles.tittleButton}> Đăng nhập </Text>
         </TouchableOpacity>

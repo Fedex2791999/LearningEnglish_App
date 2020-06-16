@@ -3,6 +3,7 @@ import React from 'react';
 import {View, Text, Dimensions, ScrollView, Button} from 'react-native';
 import HeaderProfile from '../../components/Profile/HeaderProfile';
 import BodyProfile from '../../components/Profile/BodyProfile';
+import auth from '@react-native-firebase/auth';
 
 const heightScreen = Dimensions.get('window').height;
 const widthScreen = Dimensions.get('window').width;
@@ -113,6 +114,9 @@ const Profile = props => {
             url={require('../../assets/images/logout.png')}
             navigation={props.navigation}
             nameScreen="Login"
+            onPress={
+              auth().signOut().then(() => console.log('User signed out!'))
+            }
           />
         </View>
       </ScrollView>

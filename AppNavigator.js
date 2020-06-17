@@ -4,15 +4,14 @@ import SvgUri from 'react-native-svg-uri';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import {createStackNavigator} from 'react-navigation-stack';
-import LoginScreen from './components/Login';
-import Open1 from './components/Open1';
-import Open2 from './components/Open2';
+import LoginScreen from './screens/unauthenScreen/Login';
+import Subject from './screens/authenScreen/SubjectScreen';
 import Open3 from './components/Open3';
-import SignUp from './components/SignUp';
-import HomeScreen from './screens/HomeScreen';
-import ChartsScreen from './screens/ChartsScreen';
-import ProflieScreen from './screens/ProfileScreen';
-import StoreScreen from './screens/StoreScreen';
+import SignUp from './screens/unauthenScreen/SignUp';
+import HomeScreen from './screens/authenScreen/HomeScreen';
+import ChartsScreen from './screens/authenScreen/ChartsScreen';
+import ProflieScreen from './screens/authenScreen/ProfileScreen';
+import StoreScreen from './screens/authenScreen/TranslateScreen';
 import NewWord from './screens/Volcabulary/views/VocabularyScreen/NewWord/NewWord';
 import NewWord2 from './screens/Volcabulary/views/VocabularyScreen/NewWord/NewWord2';
 import NewWord3 from './screens/Volcabulary/views/VocabularyScreen/NewWord/NewWord3';
@@ -226,8 +225,7 @@ const AppNavigator = createSwitchNavigator({
   PlayList: {screen: PlayList},
   Script: {screen: Script},
   Point: {screen: Point},
-  Open1: {screen: Open1},
-  Open2: {screen: Open2},
+  Subject: {screen: Subject},
   Open3: {screen: Open3},
 });
 export default createAppContainer(AppNavigator);

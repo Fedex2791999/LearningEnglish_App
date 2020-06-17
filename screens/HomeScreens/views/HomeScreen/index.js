@@ -1,7 +1,7 @@
 import React from 'react';
 import {ScrollView, Image, Text, View, StatusBar, Button} from 'react-native';
-import Exercise from '../../components/Exercise/Practice';
-import Level from '../../components/Exercise/Level';
+import Exercise from '../../../../components/Excercise/Practice';
+import Level from '../../../../components/Excercise/Level';
 
 const HomeScreen = props => {
   return (

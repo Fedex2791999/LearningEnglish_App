@@ -23,6 +23,7 @@ const StoreScreen = () => {
     {English: 'I have a card', VietNamese: 'Tôi có một cái thẻ'},
     {English: 'I have a shirt', VietNamese: 'Toi co mot cai ao'},
     {English: 'Apple', VietNamese: 'trái táo'},
+    {English: 'Hi My name is Huy', VietNamese: 'Xin chào tôi tên là Huy'}
   ]);
 
   const TranslateToVietNamese = () => {

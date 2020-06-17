@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
-import Profile from './ProfileScreens/views/Profile/Profile';
+import Profile from '../ProfileScreens/views/Profile/Profile';
 
 const ProfileScreen = props => {
   return (

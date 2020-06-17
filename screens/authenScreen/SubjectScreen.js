@@ -1,5 +1,5 @@
 import React from 'react';
-import {flatList} from '../data/flatList';
+import {flatList} from '../../data/flatList';
 import {
   StyleSheet,
   View,
@@ -30,7 +30,7 @@ const FlatListItem = props => {
   );
 };
 
-const Open2 = ({navigation}) => {
+const Subject = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -113,4 +113,4 @@ const styles = StyleSheet.create({
     width: 56,
   },
 });
-export default Open2;
+export default Subject;

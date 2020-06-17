@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import {List, ListItem, SearchBar, Avatar} from 'react-native-elements';
-import Rank from '../components/Rank';
-import ItemRank from '../components/ItemRank';
-import {listRank} from '../constrants/default';
+import Rank from '../../components/Rank';
+import ItemRank from '../../components/ItemRank';
+import {listRank} from '../../constrants/default';
 const ChartsScreen = () => {
   return (
     <View style={styles.container}>

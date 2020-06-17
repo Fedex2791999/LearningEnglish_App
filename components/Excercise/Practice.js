@@ -11,7 +11,7 @@ import {
 var heightScreen = Dimensions.get('window').height;
 var widthScreen = Dimensions.get('window').width;
 
-const Exercise = ({text, uri, backgroundColor, navigation, nameScreen}) => {
+const Practice = ({text, uri, backgroundColor, navigation, nameScreen}) => {
   return (
     <View
       style={{
@@ -53,4 +53,4 @@ const Exercise = ({text, uri, backgroundColor, navigation, nameScreen}) => {
   );
 };
 
-export default Exercise;
+export default Practice;

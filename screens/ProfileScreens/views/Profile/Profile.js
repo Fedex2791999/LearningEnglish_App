@@ -55,7 +55,7 @@ const Profile = props => {
           }}>
           <BodyProfile
             titletext="Email"
-            bodytext="codatduoc@gmail.com"
+            bodytext="buiquanghuy@gmail.com"
             url={require('../../assets/images/mail.png')}
             navigation={props.navigation}
             nameScreen="Main"

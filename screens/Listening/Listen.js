@@ -125,7 +125,6 @@ const Listening = props => {
             />
             <IconSound
               styles={{width: 50, height: 50, borderRadius: 50, bottom: -30}}
-              img={require('../Listening/resources/slow.png')}
               urlSound={require('../Listening/music/i_am_a_man.mp3')}
             />
           </View>

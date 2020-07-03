@@ -119,7 +119,7 @@ const Listen2 = props => {
               }}>
               <IconSound
                 styles={{width: 100, height: 100, borderRadius: 50}}
-                img={require('../Listening/resources/sound.jpg')}
+                // img={require('../Listening/resources/sound.jpg')}
                 urlSound={require('../Listening/music/i_am_a_man.mp3')}
               />
               <IconSound

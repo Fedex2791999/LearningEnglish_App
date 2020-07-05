@@ -14,7 +14,8 @@
 <br/>
 
 <img src="https://i.ibb.co/HNLR4zk/signup.png" width = "250">
-<br/>
+
+
 #### 2 Đăng nhập
 <br/>
 

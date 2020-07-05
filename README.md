@@ -13,12 +13,12 @@
 
 <br/>
 
-<img src="https://i.ibb.co/HNLR4zk/signup.png" >>
+<img src="https://i.ibb.co/HNLR4zk/signup.png" width = "250">
 <br/>
 #### 2 Đăng nhập
 <br/>
 
-<img src="https://i.ibb.co/7YYQ3Bx/singin.png" >
+<img src="https://i.ibb.co/7YYQ3Bx/singin.png" width = "250" >
 <br/>
 
 #### 3 Chọn chủ đề

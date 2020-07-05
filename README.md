@@ -9,8 +9,7 @@
 
 ### Một số hình ảnh của ứng dụnng học tiếng Anh
 
-<br/>
-### 1 Đăng ký
+#### 1 Đăng ký
 
 <br/>
 
